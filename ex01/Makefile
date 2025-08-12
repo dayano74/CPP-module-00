@@ -1,18 +1,42 @@
 NAME := phonebook
-CPP := c++
-CPPFLAGS := -Wall -Wextra -Werror -std=c++98
+
+CXX := c++
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -pedantic
+
+SRCDIR := srcs
+INCDIR := incs
+OBJDIR := obj
+DEPDIR := dep
+
+SRCS := main.cpp contact.cpp phonebook.cpp
+SRCS := $(addprefix $(SRCDIR)/,$(SRCS))
+
+OBJS := $(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+DEPS := $(SRCS:$(SRCDIR)/%.cpp=$(DEPDIR)/%.d)
+
+CXXFLAGS += -I$(INCDIR)
+
 RM := rm -f
 
-SRCS := phonebook.cpp \
+all: $(NAME)
 
-all : $(NAME)
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-$(NAME): $(SRCS)
-		$(CPP) $(CPPFLAGS) $^ -o $@
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp | $(OBJDIR) $(DEPDIR)
+	$(CXX) $(CXXFLAGS) -MMD -MP -MF $(DEPDIR)/$*.d -c $< -o $@
 
-clean :
-		$(RM) $(NAME)
+$(OBJDIR) $(DEPDIR):
+	mkdir -p $@
 
-re : clean all
+clean:
+	$(RM) -r $(OBJDIR) $(DEPDIR)
 
-.PHONY : all clean re
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+-include $(DEPS)
+
+.PHONY: all clean fclean re
