@@ -5,8 +5,8 @@ CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -pedantic
 
 SRCDIR := srcs
 INCDIR := incs
-OBJDIR := obj
-DEPDIR := dep
+OBJDIR := objs
+DEPDIR := deps
 
 SRCS := main.cpp contact.cpp phonebook.cpp
 
