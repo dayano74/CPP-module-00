@@ -4,8 +4,8 @@
 #include <iostream>
 #include <sstream>
 
-#include "contact.hpp"
-#include "phonebook.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 static std::string promptLine(const std::string &label) {
   std::string s;
