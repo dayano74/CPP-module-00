@@ -9,14 +9,15 @@ OBJDIR := obj
 DEPDIR := dep
 
 SRCS := main.cpp contact.cpp phonebook.cpp
-SRCS := $(addprefix $(SRCDIR)/,$(SRCS))
 
+SRCS := $(addprefix $(SRCDIR)/,$(SRCS))
 OBJS := $(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 DEPS := $(SRCS:$(SRCDIR)/%.cpp=$(DEPDIR)/%.d)
 
 CXXFLAGS += -I$(INCDIR)
 
 RM := rm -f
+RMDIR := rm -rf
 
 all: $(NAME)
 
@@ -30,13 +31,15 @@ $(OBJDIR) $(DEPDIR):
 	mkdir -p $@
 
 clean:
-	$(RM) -r $(OBJDIR) $(DEPDIR)
+	$(RM) $(OBJS) $(DEPS)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RMDIR) $(OBJDIR) $(DEPDIR)
 
 re: fclean all
 
 -include $(DEPS)
 
 .PHONY: all clean fclean re
+
