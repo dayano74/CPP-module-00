@@ -29,10 +29,10 @@ static void doAdd(PhoneBook &pb) {
   v = promptLine("Last name");
   if (v.empty()) return;
   c.setLastName(v);
-  v = promptLine("Nickname");
+  v = promptLine("Nick name");
   if (v.empty()) return;
   c.setNickname(v);
-  v = promptLine("Phone");
+  v = promptLine("Phone number");
   if (v.empty()) return;
   c.setPhoneNumber(v);
   v = promptLine("Darkest secret");
@@ -66,8 +66,8 @@ static void showTable(const PhoneBook &pb) {
   }
   std::cout << std::endl;
   std::cout << std::setw(10) << "Index" << '|'
-            << std::setw(10) << "First Name" << '|'
-            << std::setw(10) << "Last Name" << '|'
+            << std::setw(10) << "First name" << '|'
+            << std::setw(10) << "Last name" << '|'
             << std::setw(10) << "Nickname" << '\n';
   for (int i = 0; i < n; ++i) {
     const Contact &c = pb.getContact(i);
@@ -94,8 +94,8 @@ static void showTable(const PhoneBook &pb) {
   const Contact &c = pb.getContact(idx);
   std::cout << "First name: " << c.getFirstName() << "\n"
             << "Last name: " << c.getLastName() << "\n"
-            << "Nick name: " << c.getNickname() << "\n"
-            << "Phone number:" << c.getPhoneNumber() << "\n"
+            << "Nickname: " << c.getNickname() << "\n"
+            << "Phone number: " << c.getPhoneNumber() << "\n"
             << "Darkest secret: " << c.getDarkestSecret() << "\n";
 }
 
@@ -116,7 +116,7 @@ int main() {
     else if (cmd == "EXIT")
       break;
     else
-      std::cout << "Unknown commmand.\n";
+      std::cout << "Unknown command.\n";
   }
   return 0;
 }

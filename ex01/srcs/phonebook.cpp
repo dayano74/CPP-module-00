@@ -1,7 +1,5 @@
 #include "phonebook.hpp"
 
-#include <iostream>
-
 PhoneBook::PhoneBook() : _count(0), _next(0) {}
 
 void PhoneBook::addContact(const Contact &c) {
