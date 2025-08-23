@@ -8,7 +8,7 @@ INCDIR := incs
 OBJDIR := objs
 DEPDIR := deps
 
-SRCS := main.cpp contact.cpp phonebook.cpp
+SRCS := main.cpp Contact.cpp PhoneBook.cpp PhoneBookCLI.cpp
 
 SRCS := $(addprefix $(SRCDIR)/,$(SRCS))
 OBJS := $(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)

@@ -9,7 +9,7 @@ void PhoneBook::addContact(const Contact &c) {
 }
 
 int PhoneBook::size() const {
-  return (_count < 8) ? _count : 8;
+  return _count;
 }
 
 const Contact &PhoneBook::getContact(int i) const {

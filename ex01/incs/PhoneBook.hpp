@@ -18,4 +18,4 @@ class PhoneBook {
   const Contact &getContact(int i) const;
 };
 
-#endif
+#endif // PHONEBOOK_HPP
