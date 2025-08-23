@@ -4,7 +4,7 @@
 
 void megaphone(int cnt, char* argv[]) {
   if (cnt == 1) {
-    std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+    std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n" << std::endl;
     return;
   }
   for (int i = 1; i < cnt; i++) {
@@ -15,7 +15,7 @@ void megaphone(int cnt, char* argv[]) {
       std::cout << static_cast<char>(std::toupper(ch));
     }
   }
-  std::cout << std::endl;
+  std::cout << "\n";
 }
 
 int main(int argc, char* argv[]) {
