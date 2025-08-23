@@ -5,6 +5,7 @@
 
 !README.md
 !note.md
+!cp2sub.sh
 
 *.o
 *.d
