@@ -15,7 +15,7 @@ void megaphone(int cnt, char* argv[]) {
       std::cout << static_cast<char>(std::toupper(ch));
     }
   }
-  std::cout << "\n";
+  std::cout << '\n';
 }
 
 int main(int argc, char* argv[]) {
