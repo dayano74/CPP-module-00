@@ -8,8 +8,10 @@ void megaphone(int cnt, char* argv[]) {
     return;
   }
   for (int i = 1; i < cnt; i++) {
-    for (size_t j = 0; j < strlen(argv[i]); j++) {
-      unsigned char ch = static_cast<unsigned char>(argv[i][j]);
+	const char* s = argv[i];
+	const std::size_t len = std::strlen(s);
+    for (size_t j = 0; j < len; j++) {
+      unsigned char ch = static_cast<unsigned char>(s[j]);
       std::cout << static_cast<char>(std::toupper(ch));
     }
   }
